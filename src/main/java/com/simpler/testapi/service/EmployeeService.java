@@ -22,5 +22,10 @@ public class EmployeeService {
         return repository.findAll();
     }
 
+    public Employee getEmployeeById(Integer id){
+        return repository.findById(id).orElse(null);
+    }
+
+    
 
 }
