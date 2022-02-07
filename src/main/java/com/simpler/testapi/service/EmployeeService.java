@@ -26,6 +26,9 @@ public class EmployeeService {
         return repository.findById(id).orElse(null);
     }
 
+    public void deleteEmployee(Integer id){
+        repository.deleteById(id);
+    }
     
 
 }
