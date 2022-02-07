@@ -1,5 +1,7 @@
 package com.simpler.testapi.controller;
 
+import java.util.List;
+
 import com.simpler.testapi.data.models.Employee;
 import com.simpler.testapi.service.EmployeeService;
 
@@ -16,6 +18,11 @@ public class EmployeeController {
     @PostMapping("/addEmployee")
     public Employee addEmployee(@RequestBody Employee employee){
         return service.saveEmployee(employee);
+    }
+
+    @GetMapping("/employees")
+    public List<Employee> findallEmployees(){
+        return service.getEmployees();
     }
 
     
