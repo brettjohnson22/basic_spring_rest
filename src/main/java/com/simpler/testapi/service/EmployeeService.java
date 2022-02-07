@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeService {
+    
     @Autowired
     private EmployeeRepository repository;
   
@@ -28,6 +29,12 @@ public class EmployeeService {
 
     public void deleteEmployee(Integer id){
         repository.deleteById(id);
+    }
+
+    public Employee updateEmployee(Employee employee){
+        Employee employeeFromDb = repository.findById(employee.getId()).orElse(null);
+        employeeFromDb.setName(employee.getName());
+        return repository.save(employeeFromDb);
     }
     
 

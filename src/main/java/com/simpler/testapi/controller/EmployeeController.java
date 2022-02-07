@@ -38,6 +38,9 @@ public class EmployeeController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     
-
+    @PutMapping("/update")
+    public Employee updateEmployee(@RequestBody Employee employee){
+        return service.updateEmployee(employee);
+    }
 
 }
