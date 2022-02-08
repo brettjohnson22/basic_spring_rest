@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeService {
-    
+
     @Autowired
     private EmployeeRepository repository;
   
@@ -37,5 +37,9 @@ public class EmployeeService {
         return repository.save(employeeFromDb);
     }
     
+    public Employee getEmployeeByName(String name){
+        Employee employeeFromDb = repository.findByName(name).orElse(null);
+        return employeeFromDb;
+    }
 
 }
